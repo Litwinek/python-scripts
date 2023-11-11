@@ -44,4 +44,13 @@
         parser.error("[-] Please specify an new MAC address, use --help for more info")
     return options
 ```
-###### Powyższa funkcja będzie pobierała od użytkownika interfejs sieciowy oraz nowy adres MAC.Do zmiennej *parser* przypisujemy *optparse.OptionParse()* w celu inicjalizacji opcji. W następnych dwóch linijkach dodajemy opcje niezbędne do zmiany adresu fizycznego urządzenia. Następnie do dwoch zmiennych *(options, arguments)* przypisujemy *parser.parse_args()* w celu zatwierdzenia opcji które dodaliśmy. W następnym kroku sprawdzamy czy użytkownik podał odpowiednie opcje niezbędne do pobrania przez funkcję interfejsu sieciowego oraz adresu fizycznego. Gdy użytkownik nie poda tych danych zostanie wyświetlony błąd adekwatny do brakującej opcji. Na samym końcu funkcja zwraca opcje gdyż tylko na nich operowaliśmy. 
+###### Powyższa funkcja będzie pobierała od użytkownika interfejs sieciowy oraz nowy adres MAC.Do zmiennej *parser* przypisujemy *optparse.OptionParse()* w celu inicjalizacji opcji. W następnych dwóch linijkach dodajemy opcje niezbędne do zmiany adresu fizycznego urządzenia. Następnie do dwoch zmiennych *(options, arguments)* przypisujemy *parser.parse_args()* w celu zatwierdzenia opcji które dodaliśmy. W następnym kroku sprawdzamy czy użytkownik podał odpowiednie opcje niezbędne do pobrania przez funkcję interfejsu sieciowego oraz adresu fizycznego. Gdy użytkownik nie poda tych danych zostanie wyświetlony błąd adekwatny do brakującej opcji. Na samym końcu funkcja zwraca opcje gdyż tylko na nich operowaliśmy.
+
+```python
+    def change_mac(interface, new_mac):
+    print("[+] Changing mac address for " + interface + " to " + new_mac)
+    subprocess.call(["ifconfig", interface, "down"])
+    subprocess.call(["ifconfig", interface, "hw", "ether", new_mac])
+    subprocess.call(["ifconfig", interface, "up"])
+```
+###### Funkcja powyżej będzie zmianiała dares fizyczny wybranego przez użytkownika interfejsu siecowego. Funkcja przyjmuje 2 argumenty, argument *interface* oznaczaja interfejs sieciowy wybrany przez użytkownika podczas wywoływania funkcji *get_arguments()*. 
