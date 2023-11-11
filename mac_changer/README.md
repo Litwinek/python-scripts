@@ -53,4 +53,14 @@
         subprocess.call(["ifconfig", interface, "hw", "ether", new_mac])
         subprocess.call(["ifconfig", interface, "up"])
 ```
-###### Funkcja powyżej będzie zmianiała dares fizyczny wybranego przez użytkownika interfejsu siecowego. Funkcja przyjmuje 2 argumenty, argument *interface* oznaczaja interfejs sieciowy wybrany przez użytkownika podczas wywoływania funkcji *get_arguments()*. 
+###### Funkcja powyżej będzie zmianiała dares fizyczny wybranego przez użytkownika interfejsu siecowego. Funkcja przyjmuje 2 argumenty, argument *interface* oznacza interfejs sieciowy wybrany przez użytkownika podczas wywoływania funkcji *get_arguments()*, natomiast argument *new_mac* oznacza nowy adres fizyczny interfejsu sieciowego przekazany przez użytkownika do funkcji *get_arguments()*. Pierwsza linijka funkcji wyświetla użytkownikowi informację o zmianie adresu MAC. Nastepnie za pomocą metody *.call()* wywołujemy polecenia w kwadratowych nawiasach w terminalu. Każdy człon komendy musi być oddzielony przecinkiem oraz zgodny z działaniem na wybranym systemie operacyjnym.
+
+```python
+    def get_current_mac(interface):
+        ifconfig_result = subprocess.check_output(["ifconfig", interface])
+        mac_address_search_result = re.search(r"\w\w:\w\w:\w\w:\w\w:\w\w:\w\w", str(ifconfig_result))
+        if mac_address_search_result:
+            return mac_address_search_result.group(0)
+        else:
+            print("[-] Could not read MAC address")
+```
