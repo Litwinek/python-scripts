@@ -6,6 +6,7 @@
 ```python
 #!/usr/bin/env python
 ```
+### Wykorzystane biblioteki
 ###### Powyższa linijka informuje kompilator że, będzimy pracować w **Pythonie 2.7** z uwagi na większe wsparcie sprzętu w działaniu skryptów w tej wersji języka.
 
 ```python
@@ -28,3 +29,5 @@
 ###### Ostatnią biblioteką pomocną w tworzeniu tego skryptu będzie re. Jest to biblioteka umożliwiająca nam skorzystanie z wyrażeń regularnych, która pozwoli nam w fazie końcowej skryptu sprawdzić nasz aktualny adres MAC oraz porównać go z nowym adresem fizycznym wprowadzonym przez użytkownika w celu sprawdzenia czy adres został zmieniony. Poniżej zamieszczony jest link do dokumentacji biblioteki re.
 
 <https://docs.python.org/3/library/re.html>
+
+### Utworzone funkcje
