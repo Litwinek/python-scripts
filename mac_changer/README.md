@@ -19,7 +19,7 @@
 ```python
     import optparse
 ```
-###### Następną biblioteką potrzebną do realizacji tego projektu będzie optparse. Udostępnia ona możliwość wywoływanie komend w terminalu z różnymi opcjami. W tym wypadku opcjami których użyjemy będą -i lub --infterface sygnalizujących urządzeniu że po tych słowach kluczowych użytkownik wpisze interfejs siecowy którego będzie dotyczyć zmiana adresu MAC. Następnymi opcjami z których skorzystamy są -m lub -mac sygnalizujących ż po tych słowach kluczowych użytkownik wprowadzi nowy adres fizyczny. Poniżej zamieszczony jest link do dokumentacji biblioteki optparse
+###### Następną biblioteką potrzebną do realizacji tego projektu będzie optparse. Udostępnia ona możliwość wywoływanie komend w terminalu z różnymi opcjami. W tym wypadku opcjami których użyjemy będą -i lub --infterface sygnalizujących urządzeniu że po tych słowach kluczowych użytkownik wpisze interfejs siecowy którego będzie dotyczyć zmiana adresu MAC. Następnymi opcjami z których skorzystamy są -m lub --mac sygnalizujących że po tych słowach kluczowych użytkownik wprowadzi nowy adres fizyczny. Poniżej zamieszczony jest link do dokumentacji biblioteki optparse
 
 <https://docs.python.org/3/library/optparse.html>
 
