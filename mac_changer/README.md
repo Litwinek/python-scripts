@@ -31,3 +31,17 @@
 <https://docs.python.org/3/library/re.html>
 
 ### Utworzone funkcje
+
+```python
+    def get_arguments():
+    parser = optparse.OptionParser()
+    parser.add_option("-i", "--interface", dest="interface", help="Interface to change its MAC address")
+    parser.add_option("-m", "--mac", dest="new_mac", help="New MAC address")
+    (options, arguments) = parser.parse_args()
+    if not options.interface:
+        parser.error("[-] Please specify an interface, use --help for more info")
+    elif not options.new_mac:
+        parser.error("[-] Please specify an new MAC address, use --help for more info")
+    return options
+```
+###### Powyższa funkcja będzie pobierała od użytkownika interfejs sieciowy oraz nowy adres MAC.Do zmiennej *parser* przypisujemy *optparse.OptionParse()* w celu inicjalizacji opcji. W następnych dwóch linijkach dodajemy opcje niezbędne do zmiany adresu fizycznego urządzenia. Następnie do dwoch zmiennych *(options, arguments)* przypisujemy *parser.parse_args()* w celu zatwierdzenia opcji które dodaliśmy. W następnym kroku sprawdzamy czy użytkownik podał odpowiednie opcje niezbędne do pobrania przez funkcję interfejsu sieciowego oraz adresu fizycznego. Gdy użytkownik nie poda tych danych zostanie wyświetlony błąd adekwatny do brakującej opcji. Na samym końcu funkcja zwraca opcje gdyż tylko na nich operowaliśmy. 
