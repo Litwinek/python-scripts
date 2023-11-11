@@ -6,8 +6,8 @@
 ```python
 #!/usr/bin/env python
 ```
-### Wykorzystane biblioteki
 ###### Powyższa linijka informuje kompilator że, będzimy pracować w **Pythonie 2.7** z uwagi na większe wsparcie sprzętu w działaniu skryptów w tej wersji języka.
+### Wykorzystane biblioteki
 
 ```python
     import subprocess
