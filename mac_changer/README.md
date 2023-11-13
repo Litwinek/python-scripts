@@ -73,3 +73,18 @@
     current_mac = get_current_mac(options.interface)
     print("Current MAC = " + str(current_mac))
 ```
+###### Na początku do zmiennej *options* przypisujemy wywołanie *get_arguments()* dzięki czemu będziemy mogli odwoływać się do parametrów zwracanych przez funkcję w tak sposób *options.<nazwa_argumentu>*. Następnie do zmiennej *current_mac* przypisujemy wywołanie *get_current_mac()* z przekazanym parametrem *options.interface* co pozwoli nam na przechowanie adresu MAC przed zmianą. Następnie wyświetlamy adres fizyczny w terminalu do wglądy przez użytkownika.
+
+```python
+    change_mac(options.interface, options.new_mac)
+```
+###### Powyższe wywołanie funcji zmienia adres fizyczny urządzenia dla wybranego przez użytkownika interfejsu na zadany przez użytkownika.
+
+```python
+    current_mac = get_current_mac(options.interface)
+    if current_mac == options.new_mac:
+        print("[+] MAC address was successfully changed to " + current_mac)
+    else:
+        print("[-] MAC address did not get changed")
+```
+###### Po zmianie adresu fizycznego ponownie przypisujemy, tym razem juz zmieniony adres MAC do zmiennej *current_mac*. Nastepnie porównujemy adres z poprzednim oraz wypisujemy w terminalu komunikat dla użytkownika w zależności od wyniku sprawdzenia. 
