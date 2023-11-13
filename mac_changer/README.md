@@ -53,14 +53,23 @@
         subprocess.call(["ifconfig", interface, "hw", "ether", new_mac])
         subprocess.call(["ifconfig", interface, "up"])
 ```
-###### Funkcja powyżej będzie zmianiała dares fizyczny wybranego przez użytkownika interfejsu siecowego. Funkcja przyjmuje 2 argumenty, argument *interface* oznacza interfejs sieciowy wybrany przez użytkownika podczas wywoływania funkcji *get_arguments()*, natomiast argument *new_mac* oznacza nowy adres fizyczny interfejsu sieciowego przekazany przez użytkownika do funkcji *get_arguments()*. Pierwsza linijka funkcji wyświetla użytkownikowi informację o zmianie adresu MAC. Nastepnie za pomocą metody *.call()* wywołujemy polecenia w kwadratowych nawiasach w terminalu. Każdy człon komendy musi być oddzielony przecinkiem oraz zgodny z działaniem na wybranym systemie operacyjnym.
+###### Funkcja powyżej będzie zmianiała adres fizyczny wybranego przez użytkownika interfejsu siecowego. Funkcja przyjmuje 2 argumenty, argument *interface* oznacza interfejs sieciowy wybrany przez użytkownika podczas wywoływania funkcji *get_arguments()*, natomiast argument *new_mac* oznacza nowy adres fizyczny interfejsu sieciowego przekazany przez użytkownika do funkcji *get_arguments()*. Pierwsza linijka funkcji wyświetla użytkownikowi informację o zmianie adresu MAC. Nastepnie za pomocą metody *.call()* wywołujemy polecenia w kwadratowych nawiasach w terminalu. Każdy człon komendy musi być oddzielony przecinkiem oraz zgodny z działaniem na wybranym systemie operacyjnym.
 
 ```python
     def get_current_mac(interface):
-        ifconfig_result = subprocess.check_output(["ifconfig", interface])
-        mac_address_search_result = re.search(r"\w\w:\w\w:\w\w:\w\w:\w\w:\w\w", str(ifconfig_result))
-        if mac_address_search_result:
-            return mac_address_search_result.group(0)
-        else:
-            print("[-] Could not read MAC address")
+            ifconfig_result = subprocess.check_output(["ifconfig", interface])
+            mac_address_search_result = re.search(r"\w\w:\w\w:\w\w:\w\w:\w\w:\w\w", str(ifconfig_result))
+            if mac_address_search_result:
+                return mac_address_search_result.group(0)
+            else:
+                print("[-] Could not read MAC address")
+```
+###### Powyższa funkcja będzie uzyskiwała obecny adres MAC urządzenia, przyjmując jedynie paramketr *interface* który oznacza interjes siecowy komputera. Polecenie *ifconfig_result* będzie wyświetlało w konsoli wynik polecenia *ifconfig <nazwa_interfejsu_sieciowego>*. Następna linia wydobywa nam z poprzedniego polecenia sam adres fizyczny za pomocą wyrażenia regularnego. Kolejnym krokiem jest stworzenie instrukcji warunkowej która sprawdza czy istnieje adres MAC wydobyty za pomocą wyrażenia regularnego, jeśli tak zwraca go, jeśli nie wyświetla w terminalu odpowiedni komunikat użytkownikowi.
+
+### Wywoływanie funkcji
+
+```python
+    options = get_arguments()
+    current_mac = get_current_mac(options.interface)
+    print("Current MAC = " + str(current_mac))
 ```
