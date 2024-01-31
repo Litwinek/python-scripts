@@ -1,5 +1,5 @@
 # Repozytorium
-### To repozytorium będzie zawierało skrypty napisane w pythonie w celu rozwijania umiejętności w pisaniu narzędzi do Cybrsecurity.
+### To repozytorium będzie zawierało skrypty napisane w pythonie w celu rozwijania umiejętności w pisaniu narzędzi do Cybersecurity.
 
 *Latest Update*
 - mac_changer
